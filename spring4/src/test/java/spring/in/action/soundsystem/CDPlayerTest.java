@@ -22,6 +22,9 @@ public class CDPlayerTest {
     @Autowired
     private SgtPeppers3 cd3;
 
+    @Autowired
+    private MediaPlayer mediaPlayer;
+
     @Test
     public void cdShouldNotBeNull() {
         assertNotNull(cd);
@@ -35,5 +38,10 @@ public class CDPlayerTest {
     @Test
     public void cd3ShouldNotBeNull() {
         assertNotNull(cd3);
+    }
+
+    @Test
+    public void mediaPlayer3ShouldNotBeNull() {
+        assertNotNull(mediaPlayer);
     }
 }
