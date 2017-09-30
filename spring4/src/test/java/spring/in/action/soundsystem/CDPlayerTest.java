@@ -12,15 +12,14 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = CDPlayerConfig.class)
 public class CDPlayerTest {
+
     @Autowired
     private SgtPeppers cd;
 
     @Autowired
-    @Qualifier("lonelyHeartsClub")
     private SgtPeppers2 cd2;
 
     @Autowired
-    @Qualifier("lonelyHeartsClub2")
     private SgtPeppers3 cd3;
 
     @Test
