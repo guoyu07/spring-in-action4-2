@@ -25,4 +25,20 @@
           class="spring.in.action.soundsystem.BlankDisc"
           c:title="Sgt. Pepper's Lonely Hearts Club Band"
           c:artist="The Beatles 2" />
+
+    <bean id="compactDisc3"
+          class="spring.in.action.soundsystem.BlankDiscWithTrackList">
+        <property name="title"
+                  value="Sgt. Pepper's Lonely Hearts Club Band" />
+        <property name="artist" value="The Beatles" />
+        <property name="tracks">
+            <list>
+                <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+                <value>With a Little Help from My Friends</value>
+                <value>Lucy in the Sky with Diamonds</value>
+                <value>Getting Better</value>
+                <value>Fixing a Hole</value>
+            </list>
+        </property>
+    </bean>
 </beans>
