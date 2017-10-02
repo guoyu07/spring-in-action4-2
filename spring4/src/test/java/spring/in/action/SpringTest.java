@@ -22,6 +22,9 @@ public class SpringTest {
     @Autowired
     private CompactDisc compactDisc3;
 
+    @Autowired
+    private CompactDisc compactDisc4;
+
     @Test
     public void compactDiscShouldNotBeNull() {
         assertNotNull(compactDisc);
@@ -32,5 +35,11 @@ public class SpringTest {
     public void compactDisc3ShouldNotBeNull() {
         assertNotNull(compactDisc3);
         compactDisc3.play();
+    }
+
+    @Test
+    public void compactDisc4ShouldNotBeNull() {
+        assertNotNull(compactDisc4);
+        compactDisc4.play();
     }
 }
