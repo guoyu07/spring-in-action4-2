@@ -1,15 +1,13 @@
-package spring.in.action;
-
-import static org.junit.Assert.*;
+package spring.in.action.soundsystem;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import spring.in.action.soundsystem.CDPlayerConfig;
 import spring.in.action.soundsystem.CompactDisc;
-import spring.in.action.soundsystem.MediaPlayer;
+
+import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -17,7 +15,7 @@ import spring.in.action.soundsystem.MediaPlayer;
 public class SpringTest {
 
     @Autowired
-    private CompactDisc compactDisc;
+    private CompactDisc compactDisc2;
 
     @Autowired
     private CompactDisc compactDisc3;
@@ -27,8 +25,8 @@ public class SpringTest {
 
     @Test
     public void compactDiscShouldNotBeNull() {
-        assertNotNull(compactDisc);
-        compactDisc.play();
+        assertNotNull(compactDisc2);
+        compactDisc2.play();
     }
 
     @Test
