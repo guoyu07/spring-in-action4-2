@@ -16,9 +16,19 @@ public class DessertTest {
     @Autowired
     private DessertClient dessertClient;
 
+    @Autowired
+    @Fruity
+    @Cold
+    private Dessert fruityColdDesert;
+
     @Test
     public void dessertClientNotNull() {
         Assert.assertNotNull(dessertClient);
         Assert.assertTrue(dessertClient.getDessert() instanceof  IceCream);
+    }
+
+    @Test
+    public void fruityColdDesertNotNull() {
+        Assert.assertNotNull(fruityColdDesert);
     }
 }
