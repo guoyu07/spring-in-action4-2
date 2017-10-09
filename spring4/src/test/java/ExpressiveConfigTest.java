@@ -17,10 +17,18 @@ public class ExpressiveConfigTest {
     @Autowired
     private BlankDisc disc;
 
+    @Autowired
+    private BlankDisc disc2;
+
     @Test
     public void testBlankDisc() {
         Assert.assertNotNull(disc);
         Assert.assertEquals("Sgt. Peppers Lonely Hearts Club Band", disc.getTitle());
+    }
+
+    @Test
+    public void testBlankDisc2() {
+        Assert.assertNotNull(disc2);
     }
 
 }
