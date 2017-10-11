@@ -25,7 +25,7 @@ public class AudienceTest {
         performance.perform();
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void testPerformanceCrash() {
         performanceCrash.perform();
     }
