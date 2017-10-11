@@ -16,7 +16,7 @@ import spring.in.action.soundsystem.BlankDisc;
 public class ExpressiveConfig {
 
     @Autowired
-    Environment env;
+    private Environment env;
 
     @Value("#{T(java.lang.Math).PI}")
     private double pi;
@@ -30,7 +30,7 @@ public class ExpressiveConfig {
 
     @Bean
     public BlankDisc disc2 (
-            @Value("#{env['disc.title']}") String title,
+            @Value("#{systemProperties['disc.title']}") String title,
             @Value("#{systemProperties['disc.artist']}") String artist) {
         return new BlankDisc(title, artist);
     }
