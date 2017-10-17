@@ -14,8 +14,7 @@ import org.springframework.web.servlet.view.
 
 @Configuration
 @EnableWebMvc
-
-@ComponentScan("spitter.web")
+@ComponentScan("spittr")
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver viewResolver() {
