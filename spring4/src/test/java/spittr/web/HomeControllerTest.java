@@ -35,14 +35,30 @@ public class HomeControllerTest {
         SpittleController controller = new SpittleController(mockRepository);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller)
-                .setSingleView(
-                        new InternalResourceView("/WEB-INF/views/spittles.jsp"))
+                .setSingleView(new InternalResourceView("/WEB-INF/views/spittles.jsp"))
                 .build();
         mockMvc.perform(MockMvcRequestBuilders.get("/spittles"))
                 .andExpect(MockMvcResultMatchers.view().name("spittles"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("spittleList"))
                 .andExpect(MockMvcResultMatchers.model().attribute("spittleList",
                         Matchers.hasItems(expectedSpittles.toArray())));
+    }
+
+    @Test
+    public void shouldShowPagedSpittles() throws Exception {
+        List<Spittle> expectedSpittles = createSpittleList(50);
+        SpittleRepository mockRepository = Mockito.mock(SpittleRepository.class);
+        Mockito.when(mockRepository.findSpittles(238900, 50))
+                .thenReturn(expectedSpittles);
+        SpittleController controller =  new SpittleController(mockRepository);
+        MockMvc mockMvc =MockMvcBuilders.standaloneSetup(controller)
+                .setSingleView(new InternalResourceView("/WEB-INF/views/spittles.jsp"))
+                .build();
+        mockMvc.perform(MockMvcRequestBuilders.get("/spittles?max=238900&count=50"))
+               .andExpect(MockMvcResultMatchers.view().name("spittles"))
+               .andExpect(MockMvcResultMatchers.model().attributeExists("spittleList"))
+               .andExpect(MockMvcResultMatchers.model().attribute("spittleList",
+                       Matchers.hasItems(expectedSpittles.toArray())));
     }
 
     private List<Spittle> createSpittleList(int count) {
