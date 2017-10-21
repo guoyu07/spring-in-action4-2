@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Component
-public class MockSpittleRepository implements SpittleRepository{
+public class MockSpittleRepository implements SpittleRepository {
 
     @Override
     public List<Spittle> findSpittles(long max, int count) {
@@ -16,6 +16,12 @@ public class MockSpittleRepository implements SpittleRepository{
             spittles.add(new Spittle("Spittle " + i, new Date()));
         }
         return spittles;
-
     }
+
+    @Override
+    public Spittle findOne(long spittleId) {
+        throw new UnsupportedOperationException();
+    }
+
+
 }

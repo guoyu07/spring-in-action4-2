@@ -51,7 +51,7 @@ public class HomeControllerTest {
         Mockito.when(mockRepository.findSpittles(238900, 50))
                 .thenReturn(expectedSpittles);
         SpittleController controller =  new SpittleController(mockRepository);
-        MockMvc mockMvc =MockMvcBuilders.standaloneSetup(controller)
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller)
                 .setSingleView(new InternalResourceView("/WEB-INF/views/spittles.jsp"))
                 .build();
         mockMvc.perform(MockMvcRequestBuilders.get("/spittles?max=238900&count=50"))
@@ -67,6 +67,19 @@ public class HomeControllerTest {
             spittles.add(new Spittle("Spittle " + i, new Date()));
         }
         return spittles;
+    }
+
+    @Test
+    public void testSpittle() throws Exception {
+        Spittle expectedSpittle = new Spittle("Hello", new Date());
+        SpittleRepository mockRepository = Mockito.mock(SpittleRepository.class);
+            Mockito.when(mockRepository.findOne(12345)).thenReturn(expectedSpittle);
+        SpittleController controller = new SpittleController(mockRepository);
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        mockMvc.perform(MockMvcRequestBuilders.get("/spittles/show/12345"))
+            .andExpect(MockMvcResultMatchers.view().name("spittle"))
+            .andExpect(MockMvcResultMatchers.model().attributeExists("spittle"))
+                .andExpect(MockMvcResultMatchers.model().attribute("spittle", expectedSpittle));
     }
 
 }
