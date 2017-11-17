@@ -16,8 +16,7 @@ public class Spittle {
         this(message, time, null, null);
     }
 
-    public Spittle(
-            String message, Date time, Double longitude, Double latitude) {
+    public Spittle(String message, Date time, Double longitude, Double latitude) {
         this.id = null;
         this.message = message;
         this.time = time;
@@ -44,6 +43,8 @@ public class Spittle {
     public Double getLatitude() {
         return latitude;
     }
+
+
 
     @Override
     public boolean equals(Object that) {
