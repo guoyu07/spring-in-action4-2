@@ -6,9 +6,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import spittr.data.Spitter;
 import spittr.data.SpitterRepository;
-import spittr.data.SpittleRepository;
+import spittr.model.Spitter;
 
 public class SpittlerControllerTest {
 

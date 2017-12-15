@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import spittr.data.Spitter;
 import spittr.data.SpitterRepository;
+import spittr.model.Spitter;
 
 @Controller
 @RequestMapping("/spitter")
