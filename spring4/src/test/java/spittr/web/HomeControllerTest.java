@@ -30,7 +30,7 @@ public class HomeControllerTest {
     public void shouldShowRecentSpittles() throws Exception {
         List<Spittle> expectedSpittles = createSpittleList(20);
         SpittleRepository mockRepository = Mockito.mock(SpittleRepository.class);
-        Mockito.when(mockRepository.findSpittles(Long.MAX_VALUE, 20))
+        Mockito.when(mockRepository.findSpittles(100000000000000000L, 20))
                 .thenReturn(expectedSpittles);
         SpittleController controller = new SpittleController(mockRepository);
 
